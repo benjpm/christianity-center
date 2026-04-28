@@ -4,23 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christianity Center - Faith & Community</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Simple, clean styling */
-        body { font-family: 'Georgia', serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #2c3e50; color: white; padding: 2rem 0; text-align: center; }
-        nav { background: #34495e; padding: 10px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .hero { text-align: center; padding: 40px 0; background: #ecf0f1; margin-bottom: 20px; border-radius: 8px; }
-        .minister-card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; background: #fff; }
-        .btn { display: inline-block; background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        /* Modern Reset & Variables */
+        :root {
+            --primary-color: #2c3e50; /* Deep Navy */
+            --accent-color: #e67e22;  /* Warm Gold/Orange */
+            --bg-light: #f8f9fa;      /* Off-white */
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            line-height: 1.7; 
+            margin: 0; 
+            color: var(--text-dark); 
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+        }
+
+        /* Header */
+        header { 
+            background: linear-gradient(135deg, var(--primary-color), #34495e); 
+            color: var(--white); 
+            padding: 3rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 { color: var(--white); margin: 0; font-size: 2.5rem; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+
+        /* Navigation */
+        nav { 
+            background: var(--white); 
+            padding: 15px 0; 
+            text-align: center; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin: 0 20px; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--accent-color); }
+
+        /* Container */
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        /* Hero Section */
+        .hero { 
+            text-align: center; 
+            padding: 60px 40px; 
+            background: var(--white); 
+            margin-bottom: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+        }
+        .hero h2 { font-size: 2rem; color: var(--primary-color); }
+
+        /* Buttons */
+        .btn { 
+            display: inline-block; 
+            background: var(--accent-color); 
+            color: var(--white); 
+            padding: 12px 30px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            margin-top: 20px; 
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4); 
+        }
+
+        /* Minister Cards */
+        .minister-card { 
+            background: var(--white); 
+            padding: 30px; 
+            margin-bottom: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .minister-card:hover {
+            transform: translateY(-5px);
+        }
+        .minister-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+        .minister-card em { color: var(--accent-color); font-style: italic; display: block; margin-bottom: 15px; font-weight: 600; }
+        .read-link { color: var(--primary-color); font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
+        .read-link:hover { border-bottom-color: var(--accent-color); }
+
+        /* Donation Section */
+        #donate { 
+            background: var(--white); 
+            padding: 50px 30px; 
+            text-align: center; 
+            border-radius: 12px; 
+            margin-top: 50px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        /* Footer */
+        footer { 
+            background: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 30px; 
+            margin-top: 60px; 
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ChristianityCenter.org</h1>
+        <h1>Christianity Center</h1>
         <p>Learning, Growing, and Serving Together</p>
     </header>
 
@@ -35,32 +163,31 @@
         <!-- Welcome Section -->
         <div id="home" class="hero">
             <h2>Welcome to Our Community</h2>
-            <p>We are dedicated to providing resources, teachings, and fellowship for everyone seeking to deepen their faith.</p>
+            <p>We are dedicated to providing resources, teachings, and fellowship for everyone seeking to deepen their faith. Join us in spirit and in person.</p>
             <a href="#donate" class="btn">Support Our Mission</a>
         </div>
 
         <!-- Featured Ministers Section -->
-        <h2 id="ministers">Featured Ministers</h2>
+        <h2 id="ministers" style="text-align: center; margin-bottom: 30px;">Featured Ministers</h2>
         
         <div class="minister-card">
             <h3>Rev. John Doe</h3>
-            <p><em>"Faith is not just belief, it is action."</em></p>
-            <p>Rev. Doe has been serving our community for 15 years. Click below to read his latest thoughts on grace.</p>
-            <a href="#" style="color:#2980b9;">Read Latest Article &rarr;</a>
+            <em>"Faith is not just belief, it is action."</em>
+            <p>Rev. Doe has been serving our community for 15 years. His sermons focus on practical application of scripture in daily life.</p>
+            <a href="#" class="read-link">Read Latest Article &rarr;</a>
         </div>
 
         <div class="minister-card">
             <h3>Sister Mary Smith</h3>
-            <p><em>"Love your neighbor as yourself."</em></p>
-            <p>Sister Mary leads our outreach programs and writes weekly reflections on compassion.</p>
-            <a href="#" style="color:#2980b9;">Read Latest Article &rarr;</a>
+            <em>"Love your neighbor as yourself."</em>
+            <p>Sister Mary leads our outreach programs and writes weekly reflections on compassion and community service.</p>
+            <a href="#" class="read-link">Read Latest Article &rarr;</a>
         </div>
 
         <!-- Donation Section -->
-        <div id="donate" style="background: #f9f9f9; padding: 30px; text-align: center; border-radius: 8px; margin-top: 40px;">
+        <div id="donate">
             <h2>Support Our Work</h2>
-            <p>Your generosity helps us keep these resources free for everyone.</p>
-            <!-- Placeholder for PayPal/Stripe Button -->
+            <p>Your generosity helps us keep these resources free for everyone and fund our community outreach programs.</p>
             <button class="btn" onclick="alert('This is where your PayPal/Stripe button will go!')">Donate Now</button>
         </div>
     </div>
