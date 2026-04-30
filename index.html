@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChristianityCenter.org</title>
+    <title>Christianity Center - Faith & Community</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Modern Reset & Variables */
+        /* --- 1. VARIABLES & RESET --- */
         :root {
             --primary-color: #2c3e50; /* Deep Navy */
             --accent-color: #e67e22;  /* Warm Gold/Orange */
@@ -34,7 +34,38 @@
             margin-bottom: 0.5em;
         }
 
-        /* Header */
+        /* --- 2. ANIMATIONS (The Fade-In Slide-Up Effect) --- */
+        @keyframes fadeInSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animation to Header Title */
+        header h1 {
+            animation: fadeInSlideUp 1.2s ease-out forwards;
+        }
+
+        /* Apply animation to Section Titles (H2) */
+        h2 {
+            animation: fadeInSlideUp 1s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        /* Apply animation to Minister Cards */
+        .minister-card {
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+            /* Stagger the cards slightly */
+            animation-delay: 0.2s; 
+        }
+
+        /* --- 3. HEADER & NAVIGATION --- */
         header { 
             background: linear-gradient(135deg, var(--primary-color), #34495e); 
             color: var(--white); 
@@ -46,7 +77,6 @@
         header h1 { color: var(--white); margin: 0; font-size: 2.5rem; }
         header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
 
-        /* Navigation */
         nav { 
             background: var(--white); 
             padding: 15px 0; 
@@ -66,7 +96,7 @@
         }
         nav a:hover { color: var(--accent-color); }
 
-        /* Container */
+        /* --- 4. LAYOUT --- */
         .container { 
             max-width: 900px; 
             margin: 0 auto; 
@@ -105,7 +135,7 @@
             box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4); 
         }
 
-        /* Minister Cards */
+        /* Minister Cards (Resources) */
         .minister-card { 
             background: var(--white); 
             padding: 30px; 
@@ -122,6 +152,16 @@
         .minister-card em { color: var(--accent-color); font-style: italic; display: block; margin-bottom: 15px; font-weight: 600; }
         .read-link { color: var(--primary-color); font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
         .read-link:hover { border-bottom-color: var(--accent-color); }
+
+        /* Blog Section Placeholder */
+        #blog {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
 
         /* Donation Section */
         #donate { 
@@ -143,58 +183,36 @@
             margin-top: 60px; 
             font-size: 0.9rem;
         }
-/* Add this to your <style> section */
-
-@keyframes fadeInSlideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Apply to your H1 titles */
-header h1 {
-    animation: fadeInSlideUp 1s ease-out forwards;
-}
-
-/* Optional: Apply to section titles too */
-h2 {
-    animation: fadeInSlideUp 0.8s ease-out forwards;
-    opacity: 0; /* Start hidden */
-}
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ChristianityCenter.org</h1>
-        <p>Discover More of Christianity</p>
+        <h1>Christianity Center</h1>
+        <p>Learning, Growing, and Serving Together</p>
     </header>
 
+    <!-- NEW MENU STRUCTURE -->
     <nav>
         <a href="#home">Home</a>
-        <a href="#ministers">Featured Ministers</a>
-        <a href="#articles">Articles</a>
+        <a href="#resources">Resources</a>
+        <a href="#blog">Blog</a>
         <a href="#donate">Donate</a>
     </nav>
 
     <div class="container">
-        <!-- Welcome Section -->
+        <!-- HOME SECTION -->
         <div id="home" class="hero">
             <h2>Welcome to Our Community</h2>
-            <p>Explore articles, resources, and ministries all designed to bring you closer to God in Christ.</p>
+            <p>We are dedicated to providing resources, teachings, and fellowship for everyone seeking to deepen their faith. Join us in spirit and in person.</p>
             <a href="#donate" class="btn">Support Our Mission</a>
         </div>
 
-        <!-- Featured Ministers Section -->
-        <h2 id="ministers" style="text-align: center; margin-bottom: 30px;">Featured Ministers</h2>
+        <!-- RESOURCES SECTION (Ministers) -->
+        <h2 id="resources">Resources</h2>
         
         <div class="minister-card">
-            <h3>Timothy Le</h3>
+            <h3>Rev. John Doe</h3>
             <em>"Faith is not just belief, it is action."</em>
             <p>Rev. Doe has been serving our community for 15 years. His sermons focus on practical application of scripture in daily life.</p>
             <a href="#" class="read-link">Read Latest Article &rarr;</a>
@@ -207,7 +225,14 @@ h2 {
             <a href="#" class="read-link">Read Latest Article &rarr;</a>
         </div>
 
-        <!-- Donation Section -->
+        <!-- BLOG SECTION (Placeholder) -->
+        <div id="blog">
+            <h2>Blog & Reflections</h2>
+            <p>Stay updated with our latest thoughts, sermon recaps, and community news.</p>
+            <p><em>Weekly reflections coming soon!</em></p>
+        </div>
+
+        <!-- DONATE SECTION -->
         <div id="donate">
             <h2>Support Our Work</h2>
             <p>Your generosity helps us keep these resources free for everyone and fund our community outreach programs.</p>
