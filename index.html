@@ -1,248 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christianity Center - Faith & Community</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christianity Center — Rooted in Scripture. Grounded in Truth.</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        /* --- 1. VARIABLES & RESET --- */
-        :root {
-            --primary-color: #2c3e50; /* Deep Navy */
-            --accent-color: #e67e22;  /* Warm Gold/Orange */
-            --bg-light: #f8f9fa;      /* Off-white */
-            --text-dark: #333;
-            --white: #ffffff;
-        }
+  :root {
+    --navy: #1a2744;
+    --navy-light: #2c3e6b;
+    --gold: #b8923a;
+    --gold-light: #d4aa5a;
+    --cream: #faf9f7;
+    --text: #222222;
+    --text-muted: #5a5a5a;
+    --border: #e0ddd8;
+    --white: #ffffff;
+  }
 
-        body { 
-            font-family: 'Open Sans', sans-serif; 
-            line-height: 1.7; 
-            margin: 0; 
-            color: var(--text-dark); 
-            background-color: var(--bg-light);
-        }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
 
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 0.5em;
-        }
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-        /* --- 2. ANIMATIONS (The Fade-In Slide-Up Effect) --- */
-        @keyframes fadeInSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
 
-        /* Apply animation to Header Title */
-        header h1 {
-            animation: fadeInSlideUp 1.2s ease-out forwards;
-        }
+  .nav-logo span { color: var(--gold-light); }
 
-        /* Apply animation to Section Titles (H2) */
-        h2 {
-            animation: fadeInSlideUp 1s ease-out forwards;
-            opacity: 0; /* Start hidden */
-        }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
 
-        /* Apply animation to Minister Cards */
-        .minister-card {
-            animation: fadeInSlideUp 0.8s ease-out forwards;
-            opacity: 0; /* Start hidden */
-            /* Stagger the cards slightly */
-            animation-delay: 0.2s; 
-        }
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
 
-        /* --- 3. HEADER & NAVIGATION --- */
-        header { 
-            background: linear-gradient(135deg, var(--primary-color), #34495e); 
-            color: var(--white); 
-            padding: 3rem 1rem; 
-            text-align: center; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-light); }
 
-        header h1 { color: var(--white); margin: 0; font-size: 2.5rem; }
-        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+  .nav-links .donate-link a {
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
 
-        nav { 
-            background: var(--white); 
-            padding: 15px 0; 
-            text-align: center; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav a { 
-            color: var(--primary-color); 
-            text-decoration: none; 
-            margin: 0 20px; 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        nav a:hover { color: var(--accent-color); }
+  .nav-links .donate-link a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
 
-        /* --- 4. LAYOUT --- */
-        .container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-        }
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem 4.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
 
-        /* Hero Section */
-        .hero { 
-            text-align: center; 
-            padding: 60px 40px; 
-            background: var(--white); 
-            margin-bottom: 40px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--accent-color);
-        }
-        .hero h2 { font-size: 2rem; color: var(--primary-color); }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
 
-        /* Buttons */
-        .btn { 
-            display: inline-block; 
-            background: var(--accent-color); 
-            color: var(--white); 
-            padding: 12px 30px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            margin-top: 20px; 
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4); 
-        }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-        /* Minister Cards (Resources) */
-        .minister-card { 
-            background: var(--white); 
-            padding: 30px; 
-            margin-bottom: 25px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .minister-card:hover {
-            transform: translateY(-5px);
-        }
-        .minister-card h3 { color: var(--primary-color); margin-bottom: 10px; }
-        .minister-card em { color: var(--accent-color); font-style: italic; display: block; margin-bottom: 15px; font-weight: 600; }
-        .read-link { color: var(--primary-color); font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
-        .read-link:hover { border-bottom-color: var(--accent-color); }
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
 
-        /* Blog Section Placeholder */
-        #blog {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 32px;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 3px;
+    transition: background 0.2s;
+  }
 
-        /* Donation Section */
-        #donate { 
-            background: var(--white); 
-            padding: 50px 30px; 
-            text-align: center; 
-            border-radius: 12px; 
-            margin-top: 50px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--primary-color);
-        }
+  .hero-cta:hover { background: var(--gold-light); }
 
-        /* Footer */
-        footer { 
-            background: var(--primary-color); 
-            color: var(--white); 
-            text-align: center; 
-            padding: 30px; 
-            margin-top: 60px; 
-            font-size: 0.9rem;
-        }
-    </style>
+  /* SHARED */
+  section { padding: 4rem 2rem; }
+
+  .section-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  /* WELCOME */
+  .welcome {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: start;
+  }
+
+  .welcome-verse {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .verse-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--navy);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+  }
+
+  .verse-ref {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* QUICK LINKS */
+  .quick-links {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 1.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, border-top-color 0.2s;
+    display: block;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-top-color: var(--navy);
+  }
+
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.75rem;
+    opacity: 0.6;
+  }
+
+  .card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* LATEST FROM BLOG */
+  .latest {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .posts-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .post-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+  }
+
+  .post-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+
+  .post-item-left { flex: 1; }
+
+  .post-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .post-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .post-arrow {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    flex-shrink: 0;
+  }
+
+  .view-all {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--navy);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  .view-all:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Christianity Center</h1>
-        <p>Learning, Growing, and Serving Together</p>
-    </header>
+<nav>
+  <a href="index.html" class="nav-logo">Christianity<span>Center</span>.org</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li class="donate-link"><a href="donate.html">Donate</a></li>
+  </ul>
+</nav>
 
-    <!-- NEW MENU STRUCTURE -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#resources">Resources</a>
-        <a href="#blog">Blog</a>
-        <a href="#donate">Donate</a>
-    </nav>
+<header class="hero">
+  <p class="hero-eyebrow">Welcome to Christianity Center</p>
+  <h1>Rooted in Scripture. Grounded in Truth.</h1>
+  <p>A place for believers and seekers alike — exploring the Christian faith through careful study, honest reflection, and community.</p>
+  <a href="resources.html" class="hero-cta">Explore Resources</a>
+</header>
 
-    <div class="container">
-        <!-- HOME SECTION -->
-        <div id="home" class="hero">
-            <h2>Welcome to Our Community</h2>
-            <p>We are dedicated to providing resources, teachings, and fellowship for everyone seeking to deepen their faith. Join us in spirit and in person.</p>
-            <a href="#donate" class="btn">Support Our Mission</a>
-        </div>
-
-        <!-- RESOURCES SECTION (Ministers) -->
-        <h2 id="resources">Resources</h2>
-        
-        <div class="minister-card">
-            <h3>Rev. John Doe</h3>
-            <em>"Faith is not just belief, it is action."</em>
-            <p>Rev. Doe has been serving our community for 15 years. His sermons focus on practical application of scripture in daily life.</p>
-            <a href="#" class="read-link">Read Latest Article &rarr;</a>
-        </div>
-
-        <div class="minister-card">
-            <h3>Sister Mary Smith</h3>
-            <em>"Love your neighbor as yourself."</em>
-            <p>Sister Mary leads our outreach programs and writes weekly reflections on compassion and community service.</p>
-            <a href="#" class="read-link">Read Latest Article &rarr;</a>
-        </div>
-
-        <!-- BLOG SECTION (Placeholder) -->
-        <div id="blog">
-            <h2>Blog & Reflections</h2>
-            <p>Stay updated with our latest thoughts, sermon recaps, and community news.</p>
-            <p><em>Weekly reflections coming soon!</em></p>
-        </div>
-
-        <!-- DONATE SECTION -->
-        <div id="donate">
-            <h2>Support Our Work</h2>
-            <p>Your generosity helps us keep these resources free for everyone and fund our community outreach programs.</p>
-            <button class="btn" onclick="alert('This is where your PayPal/Stripe button will go!')">Donate Now</button>
-        </div>
+<section class="welcome">
+  <div class="section-inner">
+    <p class="section-label">About This Ministry</p>
+    <h2 class="section-title">Why We're Here</h2>
+    <div class="welcome-grid">
+      <div>
+        <p class="section-body">Christianity Center exists to make the teachings of the Christian faith accessible, understandable, and relevant. Whether you've followed Christ for decades or are just beginning to ask questions, you'll find honest answers and solid resources here.</p>
+        <p class="section-body" style="margin-top: 1rem;">We believe the Bible is the inspired Word of God — and that understanding it changes everything.</p>
+        <a href="about.html" style="display:inline-block; margin-top:1.5rem; color:var(--navy); font-size:0.875rem; font-weight:600; text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px; letter-spacing:0.03em;">Learn more about us →</a>
+      </div>
+      <div class="welcome-verse">
+        <p class="verse-text">"Your word is a lamp to my feet and a light to my path."</p>
+        <p class="verse-ref">Psalm 119:105</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Christianity Center. All rights reserved.</p>
-    </footer>
+<section class="quick-links">
+  <div class="section-inner">
+    <p class="section-label">Explore</p>
+    <h2 class="section-title">What You'll Find Here</h2>
+    <div class="cards-grid">
+
+      <a href="resources.html" class="card">
+        <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="24" height="24" rx="2" stroke="#1a2744" stroke-width="1.5"/>
+          <line x1="9" y1="11" x2="23" y2="11" stroke="#1a2744" stroke-width="1.5"/>
+          <line x1="9" y1="16" x2="23" y2="16" stroke="#1a2744" stroke-width="1.5"/>
+          <line x1="9" y1="21" x2="17" y2="21" stroke="#1a2744" stroke-width="1.5"/>
+        </svg>
+        <h3>Resources</h3>
+        <p>Articles, guides, featured ministers, and study tools to help you grow in your understanding of the faith.</p>
+      </a>
+
+      <a href="blog.html" class="card">
+        <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" stroke="#1a2744" stroke-width="1.5" fill="none"/>
+          <circle cx="16" cy="16" r="4" stroke="#1a2744" stroke-width="1.5"/>
+        </svg>
+        <h3>Blog</h3>
+        <p>Thoughtful writing on Scripture, theology, life, and the Christian walk — updated regularly.</p>
+      </a>
+
+      <a href="about.html" class="card">
+        <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="12" r="5" stroke="#1a2744" stroke-width="1.5"/>
+          <path d="M6 27 C6 21.477 10.477 17 16 17 C21.523 17 26 21.477 26 27" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>About</h3>
+        <p>Who we are, what we believe, and why this ministry exists. Our mission and our story.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="latest">
+  <div class="section-inner">
+    <p class="section-label">From the Blog</p>
+    <h2 class="section-title">Recent Articles</h2>
+    <div class="posts-list">
+
+      <a href="article-template.html" class="post-item">
+        <div class="post-item-left">
+          <p class="post-tag">Theology</p>
+          <p class="post-title">What Does It Mean to Be Made in the Image of God?</p>
+          <p class="post-meta">May 1, 2025</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+
+      <a href="article-template.html" class="post-item">
+        <div class="post-item-left">
+          <p class="post-tag">Scripture Study</p>
+          <p class="post-title">Reading the Psalms in Hard Times</p>
+          <p class="post-meta">April 18, 2025</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+
+      <a href="article-template.html" class="post-item">
+        <div class="post-item-left">
+          <p class="post-tag">Christian Living</p>
+          <p class="post-title">Grace, Works, and the Balance Christians Struggle With</p>
+          <p class="post-meta">April 5, 2025</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+
+    </div>
+    <a href="blog.html" class="view-all">View all articles →</a>
+  </div>
+</section>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="donate.html">Donate</a></li>
+  </ul>
+  <p>© 2025 ChristianityCenter.org · All rights reserved</p>
+</footer>
 
 </body>
 </html>
