@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Christianity Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #2c3e6b;
+    --gold: #b8923a;
+    --gold-light: #d4aa5a;
+    --cream: #faf9f7;
+    --text: #222222;
+    --text-muted: #5a5a5a;
+    --border: #e0ddd8;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--gold-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-light); }
+
+  .nav-links .donate-link a {
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links .donate-link a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  /* Mobile responsive nav */
+  @media (max-width: 768px) {
+    nav {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+    }
+
+    .nav-logo {
+      font-size: 0.95rem;
+      width: 100%;
+      order: -1;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+      width: 100%;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+    }
+
+    .nav-links .donate-link a {
+      background: rgba(255,255,255,0.1);
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      padding: 6px 12px;
+    }
+
+    .nav-links .donate-link a:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3.5rem 2rem 3rem;
+    border-bottom: 3px solid var(--gold);
+    text-align: center;
+  }
+
+  .page-header .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  /* SHARED */
+  .section-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  /* MISSION */
+  .mission {
+    padding: 4rem 2rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    margin-top: 1.5rem;
+    align-items: start;
+  }
+
+  .mission p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .mission p:last-child { margin-bottom: 0; }
+
+  .mission-verse {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    padding: 1.75rem 1.5rem 1.75rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .verse-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--navy);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .verse-ref {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* STORY */
+  .story {
+    padding: 4rem 2rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .story-body {
+    margin-top: 1.5rem;
+  }
+
+  .story-body p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 680px;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-strip p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    padding: 11px 28px;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 3px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    padding: 11px 28px;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-light);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .page-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .mission {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .mission-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .story {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+    }
+
+    .cta-strip {
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-strip h2 {
+      font-size: 1.2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Christianity<span>Center</span>.org</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li class="donate-link"><a href="donate.html">Donate</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Who We Are</p>
+  <h1>About Christianity Center</h1>
+</header>
+
+<section class="mission">
+  <div class="section-inner">
+    <p class="section-label">Our Mission</p>
+    <h2 class="section-title">Why This Ministry Exists</h2>
+    <div class="mission-grid">
+      <div>
+        <p>Christianity Center exists to make the Christian faith accessible — to present Scripture clearly, engage questions honestly, and equip believers to grow in their knowledge and love of God.</p>
+        <p>We believe that the Bible is the inspired, authoritative Word of God, and that its truths are as relevant today as they have ever been. Our goal is not to add to that Word, but to help people understand and apply it.</p>
+        <p>Whether you are a lifelong believer, a new Christian, or someone still asking questions — you are welcome here.</p>
+      </div>
+      <div class="mission-verse">
+        <p class="verse-text">"But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be glory both now and forever."</p>
+        <p class="verse-ref">2 Peter 3:18</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="story">
+  <div class="section-inner">
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">How We Started</h2>
+    <div class="story-body">
+      <p>[This is where you tell your story — how and why you started this ministry, what drove you to create it, any personal background you'd like to share. Visitors connect with real stories. A few honest paragraphs here go a long way.]</p>
+      <p>[You might also describe your vision for where this ministry is headed — what you hope it becomes and who you hope it serves.]</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Want to go deeper?</h2>
+  <p>Explore our resources or follow along on the blog.</p>
+  <div class="cta-buttons">
+    <a href="resources.html" class="btn-primary">Browse Resources</a>
+    <a href="blog.html" class="btn-outline">Read the Blog</a>
+  </div>
+</div>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="donate.html">Donate</a></li>
+  </ul>
+  <p>© 2025 ChristianityCenter.org · All rights reserved</p>
+</footer>
+
+</body>
+</html>
