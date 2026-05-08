@@ -90,20 +90,30 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: flex-start;
+      align-items: center;
+    }
+
+    .nav-links li {
+      display: flex;
+      align-items: center;
     }
 
     .nav-links a {
       font-size: 0.75rem;
-      padding: 6px 12px;
+      padding: 8px 12px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
+      display: flex;
+      align-items: center;
+      height: 32px;
     }
 
     .nav-links .donate-link a {
       background: rgba(255,255,255,0.1);
       color: var(--gold-light);
       border: 1px solid var(--gold);
-      padding: 6px 12px;
+      padding: 8px 12px;
+      height: 32px;
     }
 
     .nav-links .donate-link a:hover {
