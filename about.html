@@ -106,20 +106,33 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: flex-start;
+      align-items: center;
+    }
+
+    .nav-links li {
+      flex: 0 0 auto;
     }
 
     .nav-links a {
+      display: inline-block;
       font-size: 0.75rem;
       padding: 6px 12px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
     }
 
+    .nav-links .donate-link {
+      width: 100%;
+      margin-top: 0.4rem;
+    }
+
     .nav-links .donate-link a {
-      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      background: transparent;
       color: var(--gold-light);
       border: 1px solid var(--gold);
       padding: 6px 12px;
+      width: auto;
     }
 
     .nav-links .donate-link a:hover {
@@ -305,52 +318,6 @@
     background: rgba(255,255,255,0.05);
   }
 
-  /* MOBILE RESPONSIVE */
-  @media (max-width: 768px) {
-    .page-header {
-      padding: 2.5rem 1.5rem 2rem;
-    }
-
-    .page-header h1 {
-      font-size: 1.5rem;
-    }
-
-    .mission {
-      padding: 2.5rem 1.5rem;
-    }
-
-    .mission-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .story {
-      padding: 2.5rem 1.5rem;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-    }
-
-    .cta-strip {
-      padding: 2rem 1.5rem;
-    }
-
-    .cta-strip h2 {
-      font-size: 1.2rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-    }
-
-    .btn-primary,
-    .btn-outline {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -389,7 +356,7 @@
 
 <header class="page-header">
   <p class="eyebrow">Who We Are</p>
-  <h1>About Christianity Center</h1>
+  <h1>About Christianity Center!</h1>
 </header>
 
 <section class="mission">
