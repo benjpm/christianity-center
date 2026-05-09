@@ -69,6 +69,22 @@
     transition: color 0.2s;
   }
 
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-light); }
+
+  .nav-links .donate-link a {
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links .donate-link a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
   /* Mobile responsive nav */
   @media (max-width: 768px) {
     nav {
@@ -90,47 +106,34 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: flex-start;
+      align-items: center;
+    }
+
+    .nav-links li {
+      flex: 0 0 auto;
     }
 
     .nav-links a {
+      display: inline-block;
       font-size: 0.75rem;
       padding: 6px 12px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
     }
 
-    .nav-links .donate-link {
-      flex-shrink: 0;
-    }
-
     .nav-links .donate-link a {
-      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      background: transparent;
       color: var(--gold-light);
       border: 1px solid var(--gold);
       padding: 6px 12px;
-      white-space: nowrap;
+      width: auto;
     }
 
     .nav-links .donate-link a:hover {
       background: var(--gold);
       color: var(--white);
     }
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active { color: var(--gold-light); }
-
-  .nav-links .donate-link a {
-    color: var(--gold-light);
-    border: 1px solid var(--gold);
-    padding: 6px 16px;
-    border-radius: 3px;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .nav-links .donate-link a:hover {
-    background: var(--gold);
-    color: var(--white);
   }
 
   /* HERO */
@@ -449,7 +452,7 @@
 
 <header class="hero">
   <p class="hero-eyebrow">Welcome to Christianity Center</p>
-  <h1>Rooted in Scripture. Grounded in Truth.</h1>
+  <h1>Rooted in Scripture.<br>Grounded in Truth.</h1>
   <p>A place for believers and seekers alike — exploring the Christian faith through careful study, honest reflection, and community.</p>
   <a href="resources.html" class="hero-cta">Explore Resources</a>
 </header>
