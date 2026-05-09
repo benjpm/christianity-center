@@ -90,30 +90,20 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: flex-start;
-      align-items: center;
-    }
-
-    .nav-links li {
-      display: flex;
-      align-items: center;
     }
 
     .nav-links a {
       font-size: 0.75rem;
-      padding: 8px 12px;
+      padding: 6px 12px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
-      display: flex;
-      align-items: center;
-      height: 32px;
     }
 
     .nav-links .donate-link a {
       background: rgba(255,255,255,0.1);
       color: var(--gold-light);
       border: 1px solid var(--gold);
-      padding: 8px 12px;
-      height: 32px;
+      padding: 6px 12px;
     }
 
     .nav-links .donate-link a:hover {
@@ -385,58 +375,36 @@
 
   .view-all:hover { color: var(--gold); }
 
-  /* Mobile responsive nav */
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 0.75rem 1rem;
-    gap: 0.5rem;
-  }
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1.5rem 2.5rem;
+    }
 
-  .nav-logo {
-    font-size: 0.95rem;
-    width: 100%;
-    order: -1;
-    margin-bottom: 0.5rem;
-  }
+    .hero h1 {
+      font-size: 1.8rem;
+    }
 
-  .nav-links {
-    width: 100%;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;  /* NEW: align buttons vertically */
-  }
+    .hero p {
+      font-size: 0.95rem;
+    }
 
-  .nav-links li {
-    display: flex;  /* NEW: make list items flex containers */
-    align-items: center;  /* NEW: center content vertically */
-  }
+    section { padding: 2.5rem 1.5rem; }
 
-  .nav-links a {
-    font-size: 0.75rem;
-    padding: 8px 12px;  /* UPDATED: consistent padding for all buttons */
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px;
-    display: flex;  /* NEW: make links flex containers */
-    align-items: center;  /* NEW: center text vertically */
-    height: 32px;  /* NEW: consistent button height */
-  }
+    .welcome-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
 
-  .nav-links .donate-link a {
-    background: rgba(255,255,255,0.1);
-    color: var(--gold-light);
-    border: 1px solid var(--gold);
-    padding: 8px 12px;  /* UPDATED: matches other buttons */
-    height: 32px;  /* NEW: consistent height */
-  }
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
 
-  .nav-links .donate-link a:hover {
-    background: var(--gold);
-    color: var(--white);
+    .section-title {
+      font-size: 1.4rem;
+    }
   }
-}
 
   /* FOOTER */
   footer {
