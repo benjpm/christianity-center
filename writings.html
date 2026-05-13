@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minister Writings — Christianity Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #2c3e6b;
+    --gold: #b8923a;
+    --gold-light: #d4aa5a;
+    --cream: #faf9f7;
+    --text: #222222;
+    --text-muted: #5a5a5a;
+    --border: #e0ddd8;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--gold-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-light); }
+
+  .nav-links .donate-link a {
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links .donate-link a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3.5rem 2rem 3rem;
+    border-bottom: 3px solid var(--gold);
+    text-align: center;
+  }
+
+  .page-header .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* JUMP NAV */
+  .jump-nav {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+  }
+
+  .jump-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .jump-nav-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .jump-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--white);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .jump-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* SHARED */
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* MINISTER SECTION */
+  .minister-section {
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .minister-section:nth-child(even) {
+    background: var(--cream);
+  }
+
+  .minister-section:nth-child(odd) {
+    background: var(--white);
+  }
+
+  .minister-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .minister-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #e8e4dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .minister-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .minister-avatar svg {
+    width: 32px;
+    height: 32px;
+    opacity: 0.4;
+  }
+
+  .minister-header-info { flex: 1; }
+
+  .minister-header-name {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .minister-header-title {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .minister-header-link {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .minister-header-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* WRITING CARDS */
+  .writings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .writing-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.4rem 1.5rem;
+    border-radius: 0 3px 3px 0;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: box-shadow 0.2s;
+  }
+
+  .writing-card:hover {
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+  }
+
+  .writing-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .writing-title {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .writing-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+  }
+
+  .writing-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .writing-meta-read {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* BACK LINK */
+  .back-bar {
+    background: var(--navy);
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .back-bar a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .back-bar a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Christianity<span>Center</span>.org</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li class="donate-link"><a href="donate.html">Donate</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Featured Ministers</p>
+  <h1>Writings &amp; Articles</h1>
+  <p>Selected writings from ministers we trust — grounded in Scripture, faithful in practice.</p>
+</header>
+
+<!-- JUMP NAVIGATION -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label">Jump to:</span>
+    <a href="#minister-one" class="jump-link">Minister Name One</a>
+    <a href="#minister-two" class="jump-link">Minister Name Two</a>
+    <a href="#minister-three" class="jump-link">Minister Name Three</a>
+  </div>
+</div>
+
+<!-- MINISTER ONE -->
+<section class="minister-section" id="minister-one">
+  <div class="section-inner">
+    <div class="minister-header">
+      <div class="minister-avatar">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
+          <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="minister-header-info">
+        <p class="minister-header-name">Minister Name One</p>
+        <p class="minister-header-title">Pastor / Author / Theologian</p>
+      </div>
+      <a href="#" class="minister-header-link" target="_blank" rel="noopener">Visit their ministry ↗</a>
+    </div>
+
+    <div class="writings-list">
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Theology</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>May 1, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Christian Living</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>April 14, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MINISTER TWO -->
+<section class="minister-section" id="minister-two">
+  <div class="section-inner">
+    <div class="minister-header">
+      <div class="minister-avatar">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
+          <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="minister-header-info">
+        <p class="minister-header-name">Minister Name Two</p>
+        <p class="minister-header-title">Pastor / Author / Theologian</p>
+      </div>
+      <a href="#" class="minister-header-link" target="_blank" rel="noopener">Visit their ministry ↗</a>
+    </div>
+
+    <div class="writings-list">
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Scripture Study</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>April 28, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Apologetics</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>March 30, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MINISTER THREE -->
+<section class="minister-section" id="minister-three">
+  <div class="section-inner">
+    <div class="minister-header">
+      <div class="minister-avatar">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
+          <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="minister-header-info">
+        <p class="minister-header-name">Minister Name Three</p>
+        <p class="minister-header-title">Pastor / Author / Theologian</p>
+      </div>
+      <a href="#" class="minister-header-link" target="_blank" rel="noopener">Visit their ministry ↗</a>
+    </div>
+
+    <div class="writings-list">
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Prayer</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>April 5, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+      <a href="article-template.html" class="writing-card">
+        <p class="writing-tag">Theology</p>
+        <p class="writing-title">Article Title Goes Here</p>
+        <p class="writing-excerpt">A one or two sentence excerpt from the article that gives the reader a sense of what it's about and draws them in to read more.</p>
+        <div class="writing-meta">
+          <span>March 18, 2025</span>
+          <span class="writing-meta-read">Read article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="back-bar">
+  <a href="resources.html">← Back to Resources</a>
+</div>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="donate.html">Donate</a></li>
+  </ul>
+  <p>© 2025 ChristianityCenter.org · All rights reserved</p>
+</footer>
+
+</body>
+</html>

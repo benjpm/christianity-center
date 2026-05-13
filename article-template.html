@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article Title — Christianity Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #2c3e6b;
+    --gold: #b8923a;
+    --gold-light: #d4aa5a;
+    --cream: #faf9f7;
+    --text: #222222;
+    --text-muted: #5a5a5a;
+    --border: #e0ddd8;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--gold-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--gold-light); }
+
+  .nav-links .donate-link a {
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links .donate-link a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+  }
+
+  .breadcrumb-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb-inner a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-inner a:hover { color: var(--gold); }
+
+  .breadcrumb-sep { color: var(--border); }
+
+  .breadcrumb-current {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3.5rem 2rem 3rem;
+    border-bottom: 3px solid var(--gold);
+    text-align: center;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(184,146,58,0.4);
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+
+  .article-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 700px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .article-meta-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+
+  .author-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-avatar svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+
+  /* ARTICLE LAYOUT */
+  .article-layout {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+
+  .article-body p {
+    margin-bottom: 1.4rem;
+  }
+
+  .article-body p:last-child { margin-bottom: 0; }
+
+  .article-body h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 2.25rem 0 0.85rem;
+    line-height: 1.3;
+  }
+
+  .article-body h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 1.75rem 0 0.65rem;
+  }
+
+  /* SCRIPTURE PULL QUOTE */
+  .article-body blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .article-body blockquote p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+
+  .article-body blockquote cite {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-style: normal;
+    display: block;
+  }
+
+  /* ARTICLE FOOTER */
+  .article-footer {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-footer-author {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+
+  .footer-author-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #e8e4dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .footer-author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .footer-author-avatar svg {
+    width: 26px;
+    height: 26px;
+    opacity: 0.4;
+  }
+
+  .footer-author-info { flex: 1; }
+
+  .footer-author-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .footer-author-name {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-author-bio {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* BACK LINKS */
+  .back-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    letter-spacing: 0.02em;
+  }
+
+  .back-link:hover { color: var(--gold); }
+
+  /* SIDEBAR */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: sticky;
+    top: 80px;
+  }
+
+  .sidebar-widget {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .widget-title {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .widget-body {
+    padding: 1.1rem;
+    background: var(--cream);
+  }
+
+  /* SCRIPTURE WIDGET */
+  .scripture-widget {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  .scripture-ref {
+    display: block;
+    margin-top: 0.6rem;
+    font-style: normal;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* MORE ARTICLES WIDGET */
+  .more-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .more-list li a {
+    font-size: 0.875rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1.4;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .more-list li:last-child a { border-bottom: none; padding-bottom: 0; }
+  .more-list li a:hover { color: var(--gold); }
+
+  .more-tag {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  /* DONATE WIDGET */
+  .donate-widget p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .btn-donate {
+    display: block;
+    text-align: center;
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .btn-donate:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Christianity<span>Center</span>.org</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li class="donate-link"><a href="donate.html">Donate</a></li>
+  </ul>
+</nav>
+
+<!--
+  BREADCRUMB — update these links to reflect where this article lives.
+  For a blog post: Home > Blog > Article Title
+  For a minister writing: Home > Resources > Minister Writings > Article Title
+-->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="blog.html">Blog</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Article Title Goes Here</span>
+  </div>
+</div>
+
+<!--
+  ARTICLE HEADER
+  Update: category tag, h1 title, author name, and date
+-->
+<header class="article-header">
+  <span class="article-tag">Theology</span>
+  <h1>Article Title Goes Here — Replace This With Your Real Title</h1>
+  <div class="article-meta">
+    <span class="article-meta-author">
+      <span class="author-avatar">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/>
+          <path d="M4 20 C4 15.582 7.582 12 12 12 C16.418 12 20 15.582 20 20" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      Author Name
+    </span>
+    <span class="meta-dot"></span>
+    <span>May 1, 2025</span>
+    <span class="meta-dot"></span>
+    <span>5 min read</span>
+  </div>
+</header>
+
+<div class="article-layout">
+
+  <!-- ARTICLE CONTENT -->
+  <article>
+    <div class="article-body">
+
+      <!--
+        HOW TO USE THIS TEMPLATE:
+        1. Duplicate this file and rename it (e.g. "post-image-of-god.html")
+        2. Update the <title> tag at the top
+        3. Update the breadcrumb links above
+        4. Update the category tag, h1, author name, and date in the header
+        5. Replace the content below with your article text
+        6. Update the author box at the bottom
+        7. Update the "More Articles" sidebar links
+        8. Link to this file from blog.html or writings.html
+
+        FORMATTING GUIDE:
+        - Use <p> for paragraphs
+        - Use <h2> for major section headings
+        - Use <h3> for sub-headings
+        - Use <blockquote> for Scripture quotes (see example below)
+      -->
+
+      <p>This is the opening paragraph of your article. Write it to draw the reader in — introduce the topic, pose a question, or make a statement that makes them want to keep reading. A strong first paragraph matters.</p>
+
+      <p>This is a second paragraph continuing the introduction. You can write as many paragraphs as you need. Just use a new <code>&lt;p&gt;</code> tag for each one when you're editing the HTML.</p>
+
+      <h2>A Section Heading Goes Here</h2>
+
+      <p>Use headings like this to break your article into sections. It makes longer pieces much easier to read. Each major point or idea can get its own heading.</p>
+
+      <p>Continue writing your content here. There's no length requirement — write as much or as little as the topic demands. Short articles (400–600 words) are perfectly fine. Longer ones (1,000+ words) work too if the topic warrants it.</p>
+
+      <blockquote>
+        <p>"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope."</p>
+        <cite>Jeremiah 29:11 (ESV)</cite>
+      </blockquote>
+
+      <p>Use the blockquote format above for Scripture references. It gives them visual weight and distinction from the surrounding text — appropriate for God's Word.</p>
+
+      <h2>Another Section Heading</h2>
+
+      <p>Continue your article here. When you're done writing, this section and everything below it will be replaced by your real content. The formatting, fonts, spacing, and layout will all stay exactly as they are — you're only changing the words.</p>
+
+      <p>Write your conclusion here — bring the article to a close, point the reader back to Scripture or to action, and leave them with something worth carrying with them.</p>
+
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="article-footer">
+      <div class="article-footer-author">
+        <div class="footer-author-avatar">
+          <!--
+            To add a real photo: replace the <svg> below with:
+            <img src="images/author-name.jpg" alt="Author Name">
+          -->
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
+            <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="footer-author-info">
+          <p class="footer-author-label">Written by</p>
+          <p class="footer-author-name">Author Name</p>
+          <p class="footer-author-bio">A brief bio of the author — one or two sentences about who they are and their connection to this ministry or topic.</p>
+        </div>
+      </div>
+
+      <div class="back-links">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+        <!--
+          For minister writings, also add:
+          <a href="writings.html#minister-name" class="back-link">← Back to Minister Writings</a>
+        -->
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-widget">
+      <p class="widget-title">Verse of the Week</p>
+      <div class="widget-body">
+        <p class="scripture-widget">
+          "Trust in the Lord with all your heart, and do not lean on your own understanding."
+          <span class="scripture-ref">Proverbs 3:5</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <p class="widget-title">More Articles</p>
+      <div class="widget-body">
+        <ul class="more-list">
+          <li>
+            <a href="article-template.html">
+              <span class="more-tag">Scripture Study</span>
+              Reading the Psalms in Hard Times
+            </a>
+          </li>
+          <li>
+            <a href="article-template.html">
+              <span class="more-tag">Christian Living</span>
+              Grace, Works, and the Balance Christians Struggle With
+            </a>
+          </li>
+          <li>
+            <a href="article-template.html">
+              <span class="more-tag">Apologetics</span>
+              When Someone Asks You Why You Believe
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <p class="widget-title">Support This Ministry</p>
+      <div class="widget-body donate-widget">
+        <p>If this content has been helpful to you, consider supporting Christianity Center with a gift.</p>
+        <a href="donate.html" class="btn-donate">Make a Donation</a>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<footer>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p>© 2025 ChristianityCenter.org · All rights reserved</p>
+</footer>
+
+</body>
+</html>
