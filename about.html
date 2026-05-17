@@ -311,6 +311,18 @@
   .btn-outline:hover {
     border-color: var(--gold-light);
     background: rgba(255,255,255,0.05);
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .mission-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+  }
+
+  .story-body p {
+    max-width: 100%;
+  }
+}
   }
 
   /* FOOTER */
@@ -360,9 +372,9 @@
     <h2 class="section-title">Why This Ministry Exists</h2>
     <div class="mission-grid">
       <div>
-        <p class="mission-body">ChristianityCenter.org exists to make the teachings of the Christian faith accessible, understandable, and relevant.  Our mission is to equip believers to grow in their knowledge of God, love of God and trust in God.</p>
-        <p class="mission-body" style="margin-top: 1rem;">We believe that the Bible is the inspired Word of God, that its truths are as relevant today as they have ever been — and that understanding it changes everything. Our goal is not to add to that Word, but to help you understand and apply it.</p>
-        <p class="mission-body" style="margin-top: 1rem;">Whether you are a new Christian, a lifelong believer or someone still asking questions, you are in the right place.</p>
+        <p>ChristianityCenter.org exists to make the teachings of the Christian faith accessible, understandable, and relevant.  Our mission is to equip believers to grow in their knowledge of God, love of God and trust in God.</p>
+        <p>We believe that the Bible is the inspired Word of God, that its truths are as relevant today as they have ever been — and that understanding it changes everything. Our goal is not to add to that Word, but to help you understand and apply it.</p>
+        <p>Whether you are a new Christian, a lifelong believer or someone still asking questions, you are in the right place.</p>
       </div>
       <div class="mission-verse">
         <p class="verse-text">"But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be glory both now and forever."</p>
