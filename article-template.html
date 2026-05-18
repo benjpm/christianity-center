@@ -44,7 +44,7 @@
 
   .nav-logo {
     font-family: 'Lora', serif;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
     text-decoration: none;
@@ -83,57 +83,6 @@
   .nav-links .donate-link a:hover {
     background: var(--gold);
     color: var(--white);
-  }
-
-  /* MOBILE RESPONSIVE NAV */
-  @media (max-width: 768px) {
-    nav {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 0.75rem 1rem;
-      gap: 0.5rem;
-    }
-
-    .nav-logo {
-      font-size: 0.95rem;
-      width: 100%;
-      order: -1;
-      margin-bottom: 0.5rem;
-    }
-
-    .nav-links {
-      width: 100%;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: center;
-    }
-
-    .nav-links li {
-      flex: 0 0 auto;
-    }
-
-    .nav-links a {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 6px 12px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 3px;
-    }
-
-    .nav-links .donate-link a {
-      display: inline-block;
-      background: transparent;
-      color: var(--gold-light);
-      border: 1px solid var(--gold);
-      padding: 6px 12px;
-      width: auto;
-    }
-
-    .nav-links .donate-link a:hover {
-      background: var(--gold);
-      color: var(--white);
-    }
   }
 
   /* BREADCRUMB */
@@ -533,6 +482,86 @@
     margin-bottom: 1rem;
     flex-wrap: wrap;
   }
+
+  /* GLOBAL MOBILE RESPONSIVE MEDIA QUERIES */
+  @media (max-width: 850px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 2rem 1rem;
+    }
+    .sidebar {
+      position: static;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+    }
+
+    .nav-logo {
+      font-size: 0.95rem;
+      width: 100%;
+      order: -1;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+      width: 100%;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .nav-links li {
+      flex: 0 0 auto;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+    }
+    
+    .nav-links .donate-link {
+      width: 100%;
+      margin-top: 0.4rem;
+    }
+
+    .nav-links .donate-link a {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      padding: 6px 12px;
+      width: auto;
+    }
+
+    .nav-links .donate-link a:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .breadcrumb {
+      padding: 0.5rem 1rem;
+    }
+
+    .article-header {
+      padding: 2.5rem 1rem 2rem;
+    }
+
+    .article-header h1 {
+      font-size: 1.65rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -548,11 +577,6 @@
   </ul>
 </nav>
 
-<!--
-  BREADCRUMB — update these links to reflect where this article lives.
-  For a blog post: Home > Blog > Article Title
-  For a minister writing: Home > Resources > Minister Writings > Article Title
--->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="index.html">Home</a>
@@ -563,17 +587,13 @@
   </div>
 </div>
 
-<!--
-  ARTICLE HEADER
-  Update: category tag, h1 title, author name, and date
--->
 <header class="article-header">
   <span class="article-tag">Theology</span>
   <h1>Article Title Goes Here — Replace This With Your Real Title</h1>
   <div class="article-meta">
     <span class="article-meta-author">
       <span class="author-avatar">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org" aria-label="Author avatar">
           <circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/>
           <path d="M4 20 C4 15.582 7.582 12 12 12 C16.418 12 20 15.582 20 20" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -589,62 +609,29 @@
 
 <div class="article-layout">
 
-  <!-- ARTICLE CONTENT -->
-  <article>
-    <div class="article-body">
+  <main class="article-body">
+    <p>This is the opening paragraph of your article. Write it to draw the reader in — introduce the topic, pose a question, or make a statement that makes them want to keep reading. A strong first paragraph matters.</p>
+    <p>This is a second paragraph continuing the introduction. You can write as many paragraphs as you need. Just use a new <code>&lt;p&gt;</code> tag for each one when you're editing the HTML.</p>
 
-      <!--
-        HOW TO USE THIS TEMPLATE:
-        1. Duplicate this file and rename it (e.g. "post-image-of-god.html")
-        2. Update the <title> tag at the top
-        3. Update the breadcrumb links above
-        4. Update the category tag, h1, author name, and date in the header
-        5. Replace the content below with your article text
-        6. Update the author box at the bottom
-        7. Update the "More Articles" sidebar links
-        8. Link to this file from blog.html or writings.html
+    <h2>A Section Heading Goes Here</h2>
+    <p>Use headings like this to break your article into sections. It makes longer pieces much easier to read. Each major point or idea can get its own heading.</p>
+    <p>Continue writing your content here. There's no length requirement — write as much or as little as the topic demands. Short articles (400–600 words) are perfectly fine. Longer ones (1,000+ words) work too if the topic warrants it.</p>
 
-        FORMATTING GUIDE:
-        - Use <p> for paragraphs
-        - Use <h2> for major section headings
-        - Use <h3> for sub-headings
-        - Use <blockquote> for Scripture quotes (see example below)
-      -->
+    <blockquote>
+      <p>"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope."</p>
+      <cite>Jeremiah 29:11 (ESV)</cite>
+    </blockquote>
 
-      <p>This is the opening paragraph of your article. Write it to draw the reader in — introduce the topic, pose a question, or make a statement that makes them want to keep reading. A strong first paragraph matters.</p>
+    <p>Use the blockquote format above for Scripture references. It gives them visual weight and distinction from the surrounding text — appropriate for God's Word.</p>
 
-      <p>This is a second paragraph continuing the introduction. You can write as many paragraphs as you need. Just use a new <code>&lt;p&gt;</code> tag for each one when you're editing the HTML.</p>
+    <h2>Another Section Heading</h2>
+    <p>Continue your article here. When you're done writing, this section and everything below it will be replaced by your real content. The formatting, fonts, spacing, and layout will all stay exactly as they are — you're only changing the words.</p>
+    <p>Write your conclusion here — bring the article to a close, point the reader back to Scripture or to action, and leave them with something worth carrying with them.</p>
 
-      <h2>A Section Heading Goes Here</h2>
-
-      <p>Use headings like this to break your article into sections. It makes longer pieces much easier to read. Each major point or idea can get its own heading.</p>
-
-      <p>Continue writing your content here. There's no length requirement — write as much or as little as the topic demands. Short articles (400–600 words) are perfectly fine. Longer ones (1,000+ words) work too if the topic warrants it.</p>
-
-      <blockquote>
-        <p>"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope."</p>
-        <cite>Jeremiah 29:11 (ESV)</cite>
-      </blockquote>
-
-      <p>Use the blockquote format above for Scripture references. It gives them visual weight and distinction from the surrounding text — appropriate for God's Word.</p>
-
-      <h2>Another Section Heading</h2>
-
-      <p>Continue your article here. When you're done writing, this section and everything below it will be replaced by your real content. The formatting, fonts, spacing, and layout will all stay exactly as they are — you're only changing the words.</p>
-
-      <p>Write your conclusion here — bring the article to a close, point the reader back to Scripture or to action, and leave them with something worth carrying with them.</p>
-
-    </div>
-
-    <!-- AUTHOR BOX -->
     <div class="article-footer">
       <div class="article-footer-author">
         <div class="footer-author-avatar">
-          <!--
-            To add a real photo: replace the <svg> below with:
-            <img src="images/author-name.jpg" alt="Author Name">
-          -->
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://w3.org" aria-label="Author photo placeholder">
             <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
             <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
@@ -658,18 +645,11 @@
 
       <div class="back-links">
         <a href="blog.html" class="back-link">← Back to Blog</a>
-        <!--
-          For minister writings, also add:
-          <a href="writings.html#minister-name" class="back-link">← Back to Minister Writings</a>
-        -->
       </div>
     </div>
+  </main>
 
-  </article>
-
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <div class="sidebar-widget">
       <p class="widget-title">Verse of the Week</p>
       <div class="widget-body">
@@ -713,7 +693,6 @@
         <a href="donate.html" class="btn-donate">Make a Donation</a>
       </div>
     </div>
-
   </aside>
 
 </div>
