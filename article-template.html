@@ -495,27 +495,29 @@
       gap: 1.5rem;
     }
   }
-
+  ///// 
+   /* MOBILE RESPONSIVE NAV — ALL ON ONE LINE */
   @media (max-width: 768px) {
     nav {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 0.75rem 1rem;
+      flex-wrap: nowrap; /* Forces everything onto a single line */
+      height: 64px;
+      padding: 0 0.75rem; /* Reduces outer side padding */
       gap: 0.5rem;
     }
 
     .nav-logo {
-      font-size: 0.95rem;
-      width: 100%;
-      order: -1;
-      margin-bottom: 0.5rem;
+      font-size: 0.85rem; /* Slightly shrinks the logo text */
+      width: auto; /* Prevents logo from forcing links to a new line */
+      order: 0;
+      margin-bottom: 0;
+      white-space: nowrap; /* Prevents logo text from breaking into two lines */
     }
 
     .nav-links {
-      width: 100%;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      width: auto;
+      gap: 0.25rem; /* Shrinks the gaps between buttons */
+      flex-wrap: nowrap; /* Prevents individual buttons from wrapping */
+      justify-content: flex-end;
       align-items: center;
     }
 
@@ -525,15 +527,16 @@
 
     .nav-links a {
       display: inline-block;
-      font-size: 0.75rem;
-      padding: 6px 12px;
+      font-size: 0.65rem; /* Shrinks text slightly to fit small screens */
+      padding: 4px 6px; /* Tightens button padding */
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
+      white-space: nowrap; /* Keeps button text on one line */
     }
     
     .nav-links .donate-link {
-      width: 100%;
-      margin-top: 0.4rem;
+      width: auto; /* Removes the 100% width block */
+      margin-top: 0; /* Removes top spacing since it's side-by-side now */
     }
 
     .nav-links .donate-link a {
@@ -541,7 +544,7 @@
       background: transparent;
       color: var(--gold-light);
       border: 1px solid var(--gold);
-      padding: 6px 12px;
+      padding: 4px 6px; /* Matches the other buttons */
       width: auto;
     }
 
