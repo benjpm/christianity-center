@@ -442,6 +442,18 @@
       width: 100%;
       margin-top: 0.4rem;
       text-align: center;
+      transition: all 0.3s ease-in-out;
+      max-height: 50px; /* Gives the button a maximum height constraint to animate */
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .nav-links .donate-link.hide-donate {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+      padding: 0;
+      pointer-events: none; /* Prevents users from accidentally clicking it while hidden */
     }
 
     .nav-links .donate-link a {
@@ -658,6 +670,29 @@
   </ul>
   <p>© 2025 ChristianityCenter.org · All rights reserved</p>
 </footer>
+
+<script>
+  let lastScrollTop = 0;
+  const donateLink = document.querySelector('.donate-link');
+
+  window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Check if we are on a mobile screen size matches your CSS media query
+    if (window.innerWidth <= 768) {
+      if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // User is scrolling down (swiping up) -> Hide the Donate button
+        donateLink.classList.add('hide-donate');
+      } else if (currentScroll <= 10) {
+        // User scrolled all the way back to the top -> Re-reveal the Donate button
+        donateLink.classList.remove('hide-donate');
+      }
+    }
+    
+    // Prevent negative scrolling values on iOS devices elastic scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+</script>
 
 </body>
 </html>
