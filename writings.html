@@ -95,17 +95,18 @@
     }
 
     .nav-logo {
-      font-size: 0.95rem;
+      font-size: 1.2rem;
       width: 100%;
       order: -1;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .nav-links {
       width: 100%;
       gap: 0.5rem;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
     }
 
@@ -119,6 +120,25 @@
       padding: 6px 12px;
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
+    }
+
+    .nav-links .donate-link {
+      width: 100%;
+      margin-top: 0rem;
+      text-align: center;
+      /* Add these lines below to enable smooth animations */
+      transition: all 0.3s ease-in-out;
+      max-height: 50px; /* Gives the button a maximum height constraint to animate */
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .nav-links .donate-link.hide-donate {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+      padding: 0;
+      pointer-events: none; /* Prevents users from accidentally clicking it while hidden */
     }
 
     .nav-links .donate-link a {
@@ -567,6 +587,29 @@
   </ul>
   <p>© 2025 ChristianityCenter.org · All rights reserved</p>
 </footer>
+
+<script>
+  let lastScrollTop = 0;
+  const donateLink = document.querySelector('.donate-link');
+
+  window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Check if we are on a mobile screen size matches your CSS media query
+    if (window.innerWidth <= 768) {
+      if (currentScroll > lastScrollTop && currentScroll > 50) {
+        // User is scrolling down (swiping up) -> Hide the Donate button
+        donateLink.classList.add('hide-donate');
+      } else if (currentScroll <= 10) {
+        // User scrolled all the way back to the top -> Re-reveal the Donate button
+        donateLink.classList.remove('hide-donate');
+      }
+    }
+    
+    // Prevent negative scrolling values on iOS devices elastic scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+</script>
 
 </body>
 </html>
