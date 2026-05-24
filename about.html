@@ -299,7 +299,7 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--gold);
+    background: transparent;
     color: var(--white);
     text-decoration: none;
     padding: 11px 28px;
@@ -308,10 +308,14 @@
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 3px;
-    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s, background 0.2s;
   }
 
-  .btn-primary:hover { background: var(--gold-light); }
+  .btn-primary:hover { 
+    border-color: var(--gold-light);
+    background: rgba(255,255,255,0.05); 
+  }
 
   .btn-outline {
     display: inline-block;
@@ -408,9 +412,9 @@
     <p class="section-label">Our Story</p>
     <h2 class="section-title">How We Started</h2>
     <div class="story-body">
-      <p>The vision for ChristianityCenter.org began in 2011 while one of our founders was attending bible school. It was to become a ministry where 
-        believers and seekers alike would be able to freely access knowledge of God and their Christian Faith without regard to denominations,
-        traditions, groups or anyting that slows us down and gets in the way.
+      <p>The vision for ChristianityCenter.org began in 2011 when one of our founders attended bible school. It was to become a ministry where 
+        believers and seekers alike could freely access knowledge of the Christian Faith without regard to denomination,
+        tradition or anyting else that gets in the way.
       </p>
     </div>
   </div>
