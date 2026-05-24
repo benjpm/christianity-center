@@ -84,21 +84,6 @@
     color: var(--white);
   }
 
-  .btn-donate {
-    display: block;
-    text-align: center;
-    background: var(--gold);
-    color: var(--white);
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: background 0.2s;
-  }
-
   .page-header {
     background: var(--navy);
     color: var(--white);
@@ -403,18 +388,6 @@
     flex-shrink: 0;
   }
 
-  .view-all {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--navy);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 2px;
-  }
-
   .view-all:hover { color: var(--gold); }
 
   @media (max-width: 768px) {
@@ -529,6 +502,7 @@
     gap: 1.5rem;
     list-style: none;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 </style>
 </head>
@@ -561,7 +535,7 @@
       <div class="minister-card">
         <div class="minister-photo">
           <div class="minister-photo-placeholder">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://w3.org" aria-label="Minister profile placeholder">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Minister profile placeholder">
               <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
               <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
@@ -582,7 +556,7 @@
       <div class="minister-card">
         <div class="minister-photo">
           <div class="minister-photo-placeholder">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://w3.org" aria-label="Minister profile placeholder">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Minister profile placeholder">
               <circle cx="24" cy="18" r="8" stroke="#a09890" stroke-width="1.5"/>
               <path d="M8 42 C8 33.163 15.163 26 24 26 C32.837 26 40 33.163 40 42" stroke="#a09890" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
@@ -667,7 +641,7 @@
 
       <a href="https://bible.com" class="ext-link" target="_blank" rel="noopener">
         <div class="ext-link-left">
-          <p class="ext-link-name"> YouVersion </p>
+          <p class="ext-link-name">YouVersion</p>
           <p class="ext-link-desc">Get the You Version Bible App. 100% free. No ads or purchases ever.</p>
         </div>
         <span class="ext-link-arrow">↗</span>
